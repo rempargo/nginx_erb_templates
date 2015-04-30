@@ -14,3 +14,8 @@ then run the following command
 Now restert your nginx
 
 	service nginx restart
+	
+	
+for static websites, you can use the *static_template*
+
+	erb -r ./variables.rb static_template.erb > /etc/nginx/sites-enabled/www.some-domain.com
