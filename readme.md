@@ -7,7 +7,7 @@ First edit *variables.rb*
 
 
 then run the following command
-(make sure you got the right filename, I usually use the main hostname tive as filename.)
+(make sure you got the right filename, I usually use the main hostname as filename.)
 
 	erb -r ./variables.rb app_template.erb > /etc/nginx/sites-enabled/www.some-domain.com
 	
