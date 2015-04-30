@@ -1,18 +1,15 @@
-<% hostname='some.domain.com' 	%>
-<% app_name='some_app_name' 	%>
-
 # production
 server {
 	listen   80 ;     		# listen for ipv4
 	listen   [::]:80 ;		# listen for ipv6
 
-	server_name <%=hostname%>;
+	server_name 	;
 
-	# access_log /var/log/<%=hostname%>_access.log;
-	error_log  /var/log/<%=hostname%>_error.log;
+	# access_log /var/log/<%=@hostname%>_access.log;
+	error_log  /var/log/<%=@hostname%>_error.log;
 
 	location / {
-		root /opt/apps/production/<%=app_name%>/public;
+		root /opt/apps/production/<%=@app_name%>/public;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header Host $http_host;
 		proxy_redirect off;
@@ -20,7 +17,7 @@ server {
 		# If you don't find the filename in the static files
 		# Then request it from the thin server
 		if (!-f $request_filename) {
-			proxy_pass http://<%=app_name%>.production;
+			proxy_pass http://<%=@app_name%>.production;
 			break;
 		}
 	}
@@ -31,13 +28,13 @@ server {
 	listen   80 ;     		# listen for ipv4
 	listen   [::]:80 ;		# listen for ipv6
 
-	server_name staging.<%=hostname%>;
+	server_name staging.<%=@hostname%>;
 
-	access_log /var/log/<%=hostname%>_staging_access.log;
-	error_log  /var/log/<%=hostname%>_staging_error.log;
+	access_log /var/log/<%=@hostname%>_staging_access.log;
+	error_log  /var/log/<%=@hostname%>_staging_error.log;
 
 	location / {
-		root /opt/apps/staging/<%=app_name%>/public;
+		root /opt/apps/staging/<%=@app_name%>/public;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header Host $http_host;
 		proxy_redirect off;
@@ -45,7 +42,7 @@ server {
 		# If you don't find the filename in the static files
 		# Then request it from the thin server
 		if (!-f $request_filename) {
-			proxy_pass http://<%=app_name%>.staging;
+			proxy_pass http://<%=@app_name%>.staging;
 			break;
 		}
 	}
@@ -56,13 +53,13 @@ server {
 	listen   80 ;     		# listen for ipv4
 	listen   [::]:80 ;		# listen for ipv6
 
-	server_name development.<%=hostname%>;
+	server_name development.<%=@hostname%>;
 
-	access_log /var/log/<%=hostname%>_development_access.log;
-	error_log  /var/log/<%=hostname%>_development_error.log;
+	access_log /var/log/<%=@hostname%>_development_access.log;
+	error_log  /var/log/<%=@hostname%>_development_error.log;
 
 	location / {
-		root /opt/apps/development/<%=app_name%>/public;
+		root /opt/apps/development/<%=@app_name%>/public;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header Host $http_host;
 		proxy_redirect off;
@@ -70,7 +67,7 @@ server {
 		# If you don't find the filename in the static files
 		# Then request it from the thin server
 		if (!-f $request_filename) {
-			proxy_pass http://<%=app_name%>.development;
+			proxy_pass http://<%=@app_name%>.development;
 			break;
 		}
 	}

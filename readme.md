@@ -2,8 +2,8 @@ Template generator for nginx.
 
 First edit *variables.rb*
 
-	hostname='www.some-domain.com'
-	app_name='some_app_name'
+	@hostname='www.some-domain.com'
+	@app_name='some_app_name'
 
 
 then run the following command
@@ -19,3 +19,9 @@ Now restert your nginx
 for static websites, you can use the *static_template*
 
 	erb -r ./variables.rb static_template.erb > /etc/nginx/sites-enabled/www.some-domain.com
+
+
+** For some reason, beyond my comprehension, local (lower-case) variables within the 'library' *variables.rb* are not accessable within the template.
+
+Constants (UPPERCASE in ruby, e.g. `HOSTNAME` do appear to be available.
+Instance variables also work, e.g. `@hostname`
