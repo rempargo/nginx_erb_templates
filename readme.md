@@ -1,6 +1,6 @@
 Template generator for nginx.
 
-First edit variables.rb
+First edit *variables.rb*
 
 	hostname='www.some-domain.com'
 	app_name='some_app_name'
