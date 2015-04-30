@@ -76,11 +76,11 @@ server {
 
 ### UPSTREAM ###
 upstream <%= @app_name %>.production {
-	server /tmp/thin.<%= @app_name %>.production.socket;
+	server unix:/tmp/thin.<%= @app_name %>.production.socket;
 }
 upstream <%= @app_name %>.staging {
-	server /tmp/thin.<%= @app_name %>.staging.socket;
+	server unix:/tmp/thin.<%= @app_name %>.staging.socket;
 }
 upstream <%= @app_name %>.development {
-	server /tmp/thin.<%= @app_name %>.development.socket;
+	server unix:/tmp/thin.<%= @app_name %>.development.socket;
 }
