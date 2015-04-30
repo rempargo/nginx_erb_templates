@@ -5,8 +5,8 @@ server {
 
 	server_name <%= @hostname %>;
 
-	# access_log /var/log/<%= @hostname %>_access.log;
-	error_log  /var/log/<%= @hostname %>_error.log;
+	access_log /var/log/<%= @hostname %>_production_access.log;
+	error_log  /var/log/<%= @hostname %>_production_error.log;
 
 	location / {
 		root /opt/apps/production/<%= @app_name %>/public;
