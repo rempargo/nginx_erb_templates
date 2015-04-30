@@ -75,12 +75,12 @@ server {
 
 
 ### UPSTREAM ###
-upstream <% app_name %>.production {
+upstream <% @app_name %>.production {
 	server /tmp/thin.<% app_name %>.production.socket
 }
-upstream <% app_name %>.staging {
+upstream <% @app_name %>.staging {
 	server /tmp/thin.<% app_name %>.staging.socket
 }
-upstream <% app_name %>.development {
+upstream <% @app_name %>.development {
 	server /tmp/thin.<% app_name %>.development.socket
 }
