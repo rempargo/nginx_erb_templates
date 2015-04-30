@@ -3,7 +3,7 @@ server {
 	listen   80 ;     		# listen for ipv4
 	listen   [::]:80 ;		# listen for ipv6
 
-	server_name 	;
+	server_name <%= @hostname %>;
 
 	# access_log /var/log/<%= @hostname %>_access.log;
 	error_log  /var/log/<%= @hostname %>_error.log;
