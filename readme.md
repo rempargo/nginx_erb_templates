@@ -1,5 +1,28 @@
 Template generator for nginx.
 
+Assuming the following:
+you have the following directory structure on your server:
+
+# for apps
+
+/opt/apps/production/some_app_name
+/opt/apps/production/some_app_name/public
+
+/opt/apps/staging/some_app_name
+/opt/apps/staging/some_app_name/public
+
+/opt/apps/development/some_app_name
+/opt/apps/development/some_app_name/public
+
+
+
+# for static websites
+
+/opt/static/some_app_name/public
+
+
+
+
 First edit *variables.rb*
 
 	@hostname='www.some-domain.com'
@@ -10,6 +33,11 @@ then run the following command
 (make sure you got the right filename, I usually use the main hostname as filename.)
 
 	erb -r ./variables.rb app_template.erb > /etc/nginx/sites-enabled/www.some-domain.com
+
+and generate your upstream:
+
+	erb -r ./variables.rb upstream_template.erb > /etc/nginx/sites-enabled/www.some-domain.com
+
 	
 Now restert your nginx
 
