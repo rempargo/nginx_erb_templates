@@ -5,8 +5,8 @@ server {
 
 	server_name <%= @hostname %>;
 
-	access_log /var/log/<%= @hostname %>_production_access.log;
-	error_log  /var/log/<%= @hostname %>_production_error.log;
+	access_log /var/log/<%= @hostname %>_access.log;
+	error_log  /var/log/<%= @hostname %>_error.log;
 
 	location / {
 		root /opt/apps/production/<%= @app_name %>/public;
@@ -30,8 +30,8 @@ server {
 
 	server_name staging.<%= @hostname %>;
 
-	access_log /var/log/<%= @hostname %>_staging_access.log;
-	error_log  /var/log/<%= @hostname %>_staging_error.log;
+	access_log /var/log/staging.<%= @hostname %>_access.log;
+	error_log  /var/log/staging.<%= @hostname %>_error.log;
 
 	location / {
 		root /opt/apps/staging/<%= @app_name %>/public;
@@ -55,8 +55,8 @@ server {
 
 	server_name development.<%= @hostname %>;
 
-	access_log /var/log/<%= @hostname %>_development_access.log;
-	error_log  /var/log/<%= @hostname %>_development_error.log;
+	access_log /var/log/development.<%= @hostname %>_access.log;
+	error_log  /var/log/development.<%= @hostname %>_error.log;
 
 	location / {
 		root /opt/apps/development/<%= @app_name %>/public;
