@@ -30,16 +30,12 @@ First edit *variables.rb*
 
 
 then run the following command
-(make sure you got the right filename, I usually use the main hostname as filename.)
 
-	erb -r ./variables.rb app_template.erb > /etc/nginx/sites-enabled/www.some-domain.com
 
-and generate your upstream:
-
-	erb -r ./variables.rb upstream_template.erb > /etc/nginx/sites-enabled/www.some-domain.com
+	ruby ncg.rb
 
 	
-Now restert your nginx
+After that, restert your nginx
 
 	service nginx restart
 	
