@@ -4,8 +4,8 @@ server {
 
 	server_name <%= @hostname %>;
 
-	access_log  /var/log/<%= @hostname %>_production_access.log;
-	error_log  /var/log/<%= @hostname %>_production_error.log;
+	access_log  /var/log/nginx/<%= @hostname %>_production_access.log;
+	error_log  /var/log/nginx/<%= @hostname %>_production_error.log;
 
 	# config for static server
 	location / {
