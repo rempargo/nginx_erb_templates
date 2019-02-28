@@ -1,0 +1,9 @@
+upstream <%= @app_name %>.production {
+	server unix:/var/run/sockets/puma.<%= @app_name %>.production.0.socket;
+}
+upstream <%= @app_name %>.staging {
+	server unix:/var/run/sockets/puma.<%= @app_name %>.staging.0.socket;
+}
+upstream <%= @app_name %>.development {
+	server unix:/var/run/sockets/puma.<%= @app_name %>.development.0.socket;
+}
